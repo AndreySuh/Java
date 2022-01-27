@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+    <form action="">
+        <label>конвертор температуры</label><br>
+        <label>Выберите во что переволить</label><br>
+        <input type="checkbox" id="F"><span>F</span>
+        <input type="checkbox" id="C"><span>C</span>
+        <input type="text" id="temp" placeholder="введите температуру">
+        <input type="button" value="ввод" id="enter">
+
+    </form>
+    <script>
+       document.getElementById("enter").addEventListener("click", function() {
+        if (document.getElementById("C").checked == true && document.getElementById("F").checked == true){
+            alert("нужно выбрать что то одно");
+            document.getElementById("F").checked = false;
+            document.getElementById("C").checked = false; 
+            document.getElementById("temp").value ="";
+        } else if (document.getElementById("C").checked == true){
+            if (document.getElementById("temp").value ==""){
+                alert("введите температуру");
+                
+            } else {
+                C = document.getElementById("temp").value;
+                C = (C - 32)*5/9;
+                alert(C +" " + "градусов");
+                document.getElementById("temp").value ="";
+                document.getElementById("C").checked = false;
+            }
+        }  else {
+                    //document.getElementById("temp").value ="";
+                    if (document.getElementById("F").checked == true){
+                        if (document.getElementById("temp").value ==""){
+                            alert("введите температуру");
+                        } else  {
+                            F = document.getElementById("temp").value;
+                            F = (F * 5/9) + 32;
+                            alert(F +" " + "градусов");
+                            document.getElementById("temp").value ="";
+                            document.getElementById("F").checked = false;
+                        }
+                        
+                    } else {
+                        alert("выберите во что переводить");
+                        document.getElementById("temp").value ="";
+                    }     
+                
+                }
+     //   alert("нужно выбрать что то одно");
+      //  document.getElementById("F").checked = false;
+       // document.getElementById("C").checked = false;
+
+                
+            
+        
+}, false);
+       
+            
+        
+    </script>
+</body>
+</html>
